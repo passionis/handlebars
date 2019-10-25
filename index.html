@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>handleb</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/handlebars-v4.4.3.js"></script>
+    <script src="./js/index.js"></script>
+
+    <script type="text/x-handlebars-template" id="classitem">
+        <ul>
+            {{#each this}}
+                <li>
+                    <div>
+                        {{@index}}
+                    </div>
+                    <div class="innerbox">
+                        <img src="{{image}}" alt="{{title}}">
+                        <div class="title_div">
+                            <span class="title">{{title}}</span>
+                            {{#equal hasnote 0}}
+                                
+                            {{else}}
+                                <span class="note">(有笔记)</span>
+                            {{/equal}}
+                           
+                        </div>
+                        <div class="subtitle">{{subtitle}}</div>
+                        <div class="subtitle 
+                            {{#long timespan }} 
+                                long
+                                {{else}}
+                                short
+                            {{/long}}">
+                         时间：{{timespan}}</div>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    
+    </script>
+
+    <script type="text/x-handlebars-template" id="pag-template">
+        <ul>
+            {{#each this}}
+                <li {{#if cur}} class="cur" {{/if}}  {{#if clickable}} class="clickable" {{/if}} >
+                    {{{text}}}
+                </li>
+            {{/each}}
+        </ul>
+
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+        <h1>笔记</h2>
+            <h3>你的主键</h4>
+    </div>
+
+    <!-- 课程 -->
+    <div class="classes" id="classes"> </div>
+
+    <!-- 分页 -->
+    <div class="pag" id="pag">
+
+
+
+
+
+</body>
+
+</html>
